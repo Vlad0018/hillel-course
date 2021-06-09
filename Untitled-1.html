@@ -1,0 +1,46 @@
+<input id="num1" />
+
+<div id="operator_btns">
+  <button id="плюс" class="operator" onclick="op='+'">+</button>
+  <button id="минус" class="operator" onclick="op='-'">-</button>
+  <button id="умножение" class="operator" onclick="op='*'">x</button>
+  <button id="деление" class="operator" onclick="op='/'">:</button>
+</div>
+
+<input id="num2" />
+
+<button onclick="func()">Равно=</button>
+
+<p id="result"></p>
+
+
+<script>
+  var op;
+  function func() {
+    var result;
+    var num1 = Number(document.getElementById("num1").value);
+    var num2 = Number(document.getElementById("num2").value);
+    switch (op) {
+      case '+':
+        result = num1 + num2;
+        break;
+      case '-':
+        result = num1 - num2;
+        break;
+      case '*':
+        result = num1 * num2;
+        break;
+      case '/':
+        if (num2) {
+          result = num1 / num2;
+        } else {
+          result = 'бесконечность';
+        }
+        break;
+      default:
+        result = 'выберите операцию';
+    }
+
+    document.getElementById("result").innerHTML = result;
+  }
+</script>
